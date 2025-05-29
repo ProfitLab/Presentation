@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAT Marketing Plan Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars on body */
+        }
+
+        /* Custom colors for MAT theme */
+        .mat-red { background-color: #E74C3C; } /* A vibrant red */
+        .mat-white { background-color: #ECF0F1; } /* Off-white */
+        .mat-blue { background-color: #3498DB; } /* Deep blue for accents */
+        .mat-gold { background-color: #F1C40F; } /* Gold for highlights */
+        .text-mat-red { color: #E74C3C; }
+        .text-mat-blue { color: #3498DB; }
+        .text-mat-gold { color: #F1C40F; }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1280px; /* Max width for desktop */
+            height: 100vh; /* Full viewport height */
+            max-height: 720px; /* Max height for desktop */
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden; /* Hide overflow for slide transitions */
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .slide.next {
+            transform: translateX(100%);
+        }
+
+        /* Specific slide backgrounds and styles */
+        #slide1 {
+            background-image: url('https://images2.imgbox.com/08/dc/ZSABCH8d_o.png'); /* Placeholder for blended background */
+            background-blend-mode: multiply; /* Blend with background color */
+            background-color: #E74C3C;
+            color: #ECF0F1;
+            text-align: center;
+        }
+        #slide1 .mat-logo {
+            animation: pulse-glow 2s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 5px #F1C40F; }
+            to { box-shadow: 0 0 20px #F1C40F, 0 0 30px #E74C3C; }
+        }
+
+        #slide2 {
+            background-color: #ECF0F1;
+            color: #333;
+            text-align: center;
+        }
+        #slide2 .content-text {
+            animation: fade-in 1.5s ease-out forwards;
+        }
+        #slide2 .digital-icons {
+            animation: glow-pulse 2s infinite alternate;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow-pulse {
+            from { filter: drop-shadow(0 0 2px rgba(52, 152, 219, 0.5)); }
+            to { filter: drop-shadow(0 0 8px rgba(52, 152, 219, 1)); }
+        }
+
+        #slide3 {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        #slide3 .slide-element {
+            animation: slide-in-right 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        #slide3 .slide-element:nth-child(1) { animation-delay: 0.1s; }
+        #slide3 .slide-element:nth-child(2) { animation-delay: 0.3s; }
+        #slide3 .slide-element:nth-child(3) { animation-delay: 0.5s; }
+        #slide3 .slide-element:nth-child(4) { animation-delay: 0.7s; }
+        #slide3 .slide-element:nth-child(5) { animation-delay: 0.9s; }
+        @keyframes slide-in-right {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        #slide4 {
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        #slide4 .map-highlight {
+            animation: map-fade-in 1s ease-out forwards;
+        }
+        #slide4 .chart-bar {
+            animation: bar-grow 1.2s ease-out forwards;
+            transform-origin: bottom;
+        }
+        @keyframes map-fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bar-grow {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+
+        #slide5 {
+            background-color: #fff;
+            color: #333;
+        }
+        #slide5 .heart-icon {
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #slide5 .fan-segment {
+            animation: fade-in-up 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #slide5 .fan-segment:nth-child(1) { animation-delay: 0.1s; }
+        #slide5 .fan-segment:nth-child(2) { animation-delay: 0.3s; }
+        #slide5 .fan-segment:nth-child(3) { animation-delay: 0.5s; }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #slide6 {
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        /* Removed animation from here */
+        #slide6 .social-icon {
+            /* animation: icon-flicker 1s infinite alternate; */
+        }
+        /* Removed animation from here */
+        #slide6 .puzzle-piece {
+            /* animation: shake 0.5s infinite alternate; */
+        }
+        @keyframes icon-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; transform: scale(0.95); }
+            100% { opacity: 1; }
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+
+        #slide7 {
+            background-color: #fff;
+            color: #333;
+        }
+        /* Removed animation for the growth chart as the icon is removed */
+        /* Removed background colors for slot-fill elements */
+
+        #slide8 {
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        #slide8 .strength-point, #slide8 .weakness-point {
+            animation: fade-in-left 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        #slide8 .weakness-point {
+            animation-name: fade-in-right;
+            transform: translateX(20px);
+        }
+        @keyframes fade-in-left {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fade-in-right {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        #slide9 {
+            background-color: #fff;
+            color: #333;
+        }
+        #slide9 .recommendation-item {
+            animation: fade-in-up 0.7s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #slide9 .recommendation-item:nth-child(1) { animation-delay: 0.1s; }
+        #slide9 .recommendation-item:nth-child(2) { animation-delay: 0.2s; }
+        #slide9 .recommendation-item:nth-child(3) { animation-delay: 0.3s; }
+        #slide9 .recommendation-item:nth-child(4) { animation-delay: 0.4s; }
+        #slide9 .recommendation-item:nth-child(5) { animation-delay: 0.5s; }
+        #slide9 .recommendation-item:nth-child(6) { animation-delay: 0.6s; }
+
+        #slide10 {
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide10 .goal-item {
+            animation: fade-in 1s ease-out forwards;
+            opacity: 0;
+        }
+        #slide10 .goal-item:nth-child(1) { animation-delay: 0.1s; }
+        #slide10 .goal-item:nth-child(2) { animation-delay: 0.3s; }
+        #slide10 .goal-item:nth-child(3) { animation-delay: 0.5s; }
+        #slide10 .goal-item:nth-child(4) { animation-delay: 0.7s; }
+        #slide10 .progress-bar-fill {
+            animation: fill-width 1.5s ease-out forwards;
+        }
+        @keyframes fill-width {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        /* New combined slide for Execution Plan */
+        #slide11 {
+            background-color: #fff;
+            color: #333;
+            overflow-y: hidden; /* Prevent scrolling for content */
+            justify-content: space-evenly; /* Distribute content vertically */
+            padding-top: 1rem; /* Adjust padding to give more space */
+            padding-bottom: 1rem;
+            position: relative; /* Needed for pseudo-element */
+        }
+        #slide11::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M100 0L0 100V0h100zM0 100L100 0v100H0z" fill="%23E74C3C" fill-opacity="0.05"/%3E%3C/svg%3E'); /* Subtle geometric pattern */
+            background-size: 100px 100px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        #slide11 .phase-heading {
+            animation: fade-in-up 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            margin-bottom: 0.5rem; /* Reduced margin */
+            position: relative; /* Bring content above pseudo-element */
+            z-index: 1;
+        }
+        .phase-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0.25rem; /* Reduced margin */
+            position: relative;
+            width: 100%; /* Ensure full width usage */
+            z-index: 1; /* Bring content above pseudo-element */
+        }
+
+        .phase-box {
+            background-color: #f0f0f0;
+            border-radius: 0.75rem;
+            padding: 0.5rem; /* Reduced padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 0.25rem; /* Reduced margin */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in-up 0.8s ease-out forwards;
+            z-index: 1; /* Bring content above pseudo-element */
+        }
+
+        .phase-box:nth-child(1) { animation-delay: 0.1s; }
+        .phase-box:nth-child(2) { animation-delay: 0.3s; }
+        .phase-box:nth-child(3) { animation-delay: 0.5s; }
+
+        .phase-title {
+            font-size: 1.1rem; /* Reduced font size */
+            font-weight: bold;
+            color: #E74C3C;
+            margin-bottom: 0.25rem; /* Reduced margin */
+            text-align: center;
+        }
+
+        .phase-activity {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4rem; /* Reduced gap */
+            margin-bottom: 0.1rem; /* Reduced margin */
+            font-size: 0.8rem; /* Reduced font size */
+        }
+
+        .phase-activity-icon {
+            font-size: 1rem; /* Reduced font size */
+            color: #3498DB;
+            flex-shrink: 0;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent; /* Reduced size */
+            border-right: 8px solid transparent; /* Reduced size */
+            border-top: 12px solid #3498DB; /* Reduced size */
+            margin: 0.25rem auto; /* Reduced margin */
+            opacity: 0;
+            animation: fade-in-up 0.8s ease-out forwards;
+            z-index: 1; /* Bring content above pseudo-element */
+        }
+        .arrow-down:nth-of-type(1) { animation-delay: 0.8s; }
+        .arrow-down:nth-of-type(2) { animation-delay: 1.8s; }
+
+
+        #slide12 { /* Original slide 14 */
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        #slide12 .content-type-item {
+            animation: fade-in-up 0.7s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #slide12 .content-type-item:nth-child(1) { animation-delay: 0.1s; }
+        #slide12 .content-type-item:nth-child(2) { animation-delay: 0.2s; }
+        #slide12 .content-type-item:nth-child(3) { animation-delay: 0.3s; }
+        #slide12 .content-type-item:nth-child(4) { animation-delay: 0.4s; }
+        #slide12 .content-type-item:nth-child(5) { animation-delay: 0.5s; }
+
+        #slide13 { /* Original slide 15 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide13 .revenue-bar {
+            animation: bar-grow-horizontal 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+        @keyframes bar-grow-horizontal {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        #slide14 { /* Original slide 16 */
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide14 .org-role {
+            animation: fade-in-up 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #slide14 .org-role:nth-child(1) { animation-delay: 0.1s; }
+        #slide14 .org-role:nth-child(2) { animation-delay: 0.3s; }
+        #slide14 .org-role:nth-child(3) { animation-delay: 0.5s; }
+        #slide14 .org-role:nth-child(4) { animation-delay: 0.7s; }
+        #slide14 .org-role:nth-child(5) { animation-delay: 0.9s; }
+
+        #slide15 { /* Original slide 17 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide15 .success-factor {
+            animation: pop-in 0.6s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        @keyframes pop-in {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #slide15 .success-factor:nth-child(1) { animation-delay: 0.1s; }
+        #slide15 .success-factor:nth-child(2) { animation-delay: 0.2s; }
+        #slide15 .success-factor:nth-child(3) { animation-delay: 0.3s; }
+        #slide15 .success-factor:nth-child(4) { animation-delay: 0.4s; }
+        #slide15 .success-factor:nth-child(5) { animation-delay: 0.5s; }
+
+        #slide16 { /* Original slide 18 */
+            background-color: #E74C3C;
+            color: #ECF0F1;
+            text-align: center;
+        }
+        #slide16 .slogan-text {
+            animation: strong-reveal 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        @keyframes strong-reveal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #slide16 .campaign-icon {
+            animation: bounce-in 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        @keyframes bounce-in {
+            0% { opacity: 0; transform: scale(0.5); }
+            60% { opacity: 1; transform: scale(1.1); }
+            100% { transform: transform: scale(1); }
+        }
+        #slide16 .campaign-icon:nth-child(1) { animation-delay: 0.2s; }
+        #slide16 .campaign-icon:nth-child(2) { animation-delay: 0.4s; }
+        #slide16 .campaign-icon:nth-child(3) { animation-delay: 0.6s; }
+        #slide16 .campaign-icon:nth-child(4) { animation-delay: 0.8s; }
+
+        #slide17 { /* Original slide 19 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide17 .activation-point {
+            animation: subtle-reveal 0.7s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes subtle-reveal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #slide17 .activation-point:nth-child(odd) { animation-delay: 0.1s; }
+        #slide17 .activation-point:nth-child(even) { animation-delay: 0.3s; }
+
+        #slide18 { /* Original slide 20 */
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        #slide18 .dynamic-effect {
+            animation: dynamic-pop 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        @keyframes dynamic-pop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #slide18 .dynamic-effect:nth-child(1) { animation-delay: 0.1s; }
+        #slide18 .dynamic-effect:nth-child(2) { animation-delay: 0.3s; }
+        #slide18 .dynamic-effect:nth-child(3) { animation-delay: 0.5s; }
+        #slide18 .dynamic-effect:nth-child(4) { animation-delay: 0.7s; }
+        #slide18 .dynamic-effect:nth-child(5) { animation-delay: 0.9s; }
+        #slide18 .dynamic-effect:nth-child(6) { animation-delay: 1.1s; }
+
+        #slide19 { /* Original slide 21 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide19 .visual-separation-item {
+            animation: slide-in-top 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        @keyframes slide-in-top {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #slide19 .visual-separation-item:nth-child(odd) { animation-delay: 0.1s; }
+        #slide19 .visual-separation-item:nth-child(even) { animation-delay: 0.3s; }
+
+        #slide20 { /* Original slide 22 */
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide20 .timeline-progress {
+            animation: timeline-fill 2s ease-out forwards;
+        }
+        @keyframes timeline-fill {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        #slide20 .kpi-gauge {
+            animation: gauge-fill 1.5s ease-out forwards;
+        }
+        @keyframes gauge-fill {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        #slide21 { /* Original slide 23 */
+            background-color: #E74C3C;
+            color: #ECF0F1;
+            text-align: center;
+        }
+        #slide21 .slogan-reveal {
+            animation: strong-reveal 1s ease-out forwards;
+            opacity: 0;
+        }
+        #slide21 .values-fade {
+            animation: fade-in 1.2s ease-out forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+
+        #slide22 { /* Original slide 24 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide22 .clean-slide-in {
+            animation: slide-in-left 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        #slide22 .clean-slide-in:nth-child(1) { animation-delay: 0.1s; }
+        #slide22 .clean-slide-in:nth-child(2) { animation-delay: 0.3s; }
+        #slide22 .clean-slide-in:nth-child(3) { animation-delay: 0.5s; }
+        #slide22 .clean-slide-in:nth-child(4) { animation-delay: 0.7s; }
+
+        #slide23 { /* Original slide 25 */
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        #slide23 .campaign-idea {
+            animation: distinct-reveal 0.9s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes distinct-reveal {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #slide23 .campaign-idea:nth-child(1) { animation-delay: 0.1s; }
+        #slide23 .campaign-idea:nth-child(2) { animation-delay: 0.3s; }
+        #slide23 .campaign-idea:nth-child(3) { animation-delay: 0.5s; }
+        #slide23 .campaign-idea:nth-child(4) { animation-delay: 0.7s; }
+
+        #slide24 { /* Original slide 26 */
+            background-color: #fff;
+            color: #333;
+        }
+        #slide24 .digital-element {
+            animation: fade-in-up 0.7s ease-out forwards;
+            opacity: 0;
+        }
+        #slide24 .digital-element:nth-child(1) { animation-delay: 0.1s; }
+        #slide24 .digital-element:nth-child(2) { animation-delay: 0.2s; }
+        #slide24 .digital-element:nth-child(3) { animation-delay: 0.3s; }
+        #slide24 .digital-element:nth-child(4) { animation-delay: 0.4s; }
+        #slide24 .product-mockup {
+            animation: rotate-in 1s ease-out forwards;
+            opacity: 0;
+            transform: rotateY(90deg);
+        }
+        @keyframes rotate-in {
+            from { opacity: 0; transform: rotateY(90deg); }
+            to { opacity: 1; transform: rotateY(0deg); }
+        }
+        #slide24 .product-mockup:nth-child(1) { animation-delay: 0.6s; }
+        #slide24 .product-mockup:nth-child(2) { animation-delay: 0.8s; }
+        #slide24 .product-mockup:nth-child(3) { animation-delay: 1s; }
+
+        /* Styles for new slides (e-Sports, Feminine, Futsal) */
+        .new-slide-content {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        .new-slide-content .content-section {
+            background-color: #f8f8f8; /* Light gray for content boxes */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: 800px;
+        }
+        .new-slide-content .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .new-slide-content .grid-item {
+            background-color: #f0f0f0; /* Slightly darker gray for grid items */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .new-slide-content .section-heading {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #3498DB; /* Blue for section headings */
+            margin-bottom: 1rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .new-slide-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            text-align: right; /* Align list items to the right */
+            direction: rtl; /* Ensure RTL for list items */
+        }
+        .new-slide-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+
+        #slide25 { /* MAT e-Sports - Objectives & Pillars */
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide26 { /* MAT e-Sports - Income Sources */
+            background-color: #F8F8F8; /* Changed to F8F8F8 to match previous content boxes */
+            color: #333;
+        }
+        #slide27 { /* MAT Féminin - Objectives & Pillars */
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide28 { /* MAT Féminin - Income Sources */
+            background-color: #F8F8F8; /* Changed to F8F8F8 to match previous content boxes */
+            color: #333;
+        }
+        #slide29 { /* MAT Futsal - Objectives & Pillars */
+            background-color: #ECF0F1;
+            color: #333;
+        }
+        #slide30 { /* MAT Futsal - Income Sources */
+            background-color: #F8F8F8; /* Changed to F8F8F8 to match previous content boxes */
+            color: #333;
+        }
+
+        #slide31 { /* Final Conclusion Slide */
+            background-color: #E74C3C; /* Red background */
+            color: #ECF0F1;
+            text-align: center;
+        }
+        #slide31 .roadmap-graphic {
+            animation: roadmap-animate 2s ease-out forwards;
+        }
+        @keyframes roadmap-animate {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes sparkle {
+            0% { text-shadow: 0 0 5px #F1C40F; }
+            50% { text-shadow: 0 0 15px #F1C40F, 0 0 25px #ECF0F1; }
+            100% { text-shadow: 0 0 5px #F1C40F; }
+        }
+
+        .navigation-buttons {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .nav-button {
+            background-color: #3498DB; /* Deep blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            background-color: #2980B9; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background-color: #95A5A6; /* Gray for disabled */
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .presentation-container {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                max-height: none;
+                border-radius: 0;
+            }
+            .slide {
+                padding: 1rem;
+            }
+            .text-5xl { font-size: 2.5rem; }
+            .text-3xl { font-size: 1.75rem; }
+            .text-xl { font-size: 1.125rem; }
+            .text-lg { font-size: 1rem; }
+            .navigation-buttons {
+                bottom: 0.5rem;
+                gap: 0.5rem;
+            }
+            .nav-button {
+                padding: 0.5rem 1rem;
+            }
+            .new-slide-content .section-heading {
+                font-size: 1.5rem;
+            }
+            .new-slide-content .grid-item {
+                padding: 0.75rem;
+                font-size: 0.8rem;
+            }
+            .new-slide-content ul {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div class="presentation-container">
+
+        <div id="slide1" class="slide active">
+            <img src="https://tmssl.akamaized.net//images/wappen/big/9100.png?lm=1717720007" alt="MAT Logo" class="mat-logo w-56 h-56 mb-8 rounded-none shadow-lg absolute top-8 left-1/2 transform -translate-x-1/2">
+            <p class="text-2xl font-bold text-mat-white mb-2 mt-32">MAT MARKETING PLAN</p>
+            <h1 class="text-5xl font-extrabold mb-4 font-['Tajawal']">خطة تسويقية متكاملة: المغرب أتلتيك تطوان</h1>
+            <h2 class="text-3xl font-semibold mb-8 font-['Tajawal']">أصالة.. روح.. تطوان</h2>
+			<p class="text-lg font-semibold text-mat-white">Mohamed Achraf Abroun - Vice President and CMO</p>
+            <p class="text-lg font-semibold text-mat-white">Anas Actaou - Brand Specialist</p>
+            <p class="text-xl">Integrated Marketing Plan: Moghreb Athletic Tetouan</p>
+            <p class="text-xl">Authenticity.. Spirit.. Tetouan</p>
+            </div>
+
+        <div id="slide2" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">رؤيتنا التسويقية</h2>
+            <p class="text-2xl mb-6 content-text text-center max-w-3xl font-['Tajawal']">
+                جعل المغرب التطواني علامة رياضية مغربية أصيلة، رقمية مربحة، وملهمة للأجيال الصاعدة في الشمال والمغتربين.
+            </p>
+            <p class="text-xl mb-8 content-text text-center max-w-3xl">
+                (To make Moghreb Athletic Tetouan an authentic Moroccan sports brand, digitally profitable, and inspiring for rising generations in the North and among expatriates.)
+            </p>
+            <div class="flex gap-4 digital-icons">
+                <svg class="w-12 h-12 text-mat-blue" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zM8 9.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm4 10c-2.761 0-5-2.239-5-5h10c0 2.761-2.239 5-5 5z"/></svg>
+                <svg class="w-12 h-12 text-mat-blue" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16h-2V8h2v8zm3 0h-2V8h2v8zm3 0h-2V8h2v8z"/></svg>
+            </div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-10 -z-10" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2xU4_gFktd88R8L5RwqLWl8HSqW_d550C7w&s');"></div>
+        </div>
+
+        <div id="slide3" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">هوية العلامة التجارية: جوهر MAT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
+                <div class="slide-element flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🏷️</span>
+                    <div>
+                        <h3 class="text-xl font-semibold font-['Tajawal']">الاسم: المغرب أتلتيك تطوان (MAT)</h3>
+                        <p class="text-gray-600">Name: Moghreb Athletic Tetouan (MAT)</p>
+                    </div>
+                </div>
+                <div class="slide-element flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🎨</span>
+                    <div>
+                        <h3 class="text-xl font-semibold font-['Tajawal']">الألوان: الأحمر والأبيض</h3>
+                        <p class="text-gray-600">Colors: Red & White - Inspired by Andalusian character & city emblem.</p>
+                    </div>
+                </div>
+                <div class="slide-element flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🛡️</span>
+                    <div>
+                        <h3 class="text-xl font-semibold font-['Tajawal']">الشعار: يجمع بين الكلاسيكية والرمزية التاريخية</h3>
+                        <p class="text-gray-600">Logo: Combines classicism & historical symbolism (Morocco, Tetouan, Andalusia).</p>
+                    </div>
+                </div>
+                <div class="slide-element flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">📜</span>
+                    <div>
+                        <h3 class="text-xl font-semibold font-['Tajawal']">القصة: النادي الوحيد في المغرب الذي لعب في الليغا الإسبانية (1951-52)</h3>
+                        <p class="text-gray-600">Story: Only Moroccan club to play in Spanish La Liga (1951-52).</p>
+                    </div>
+                </div>
+                <div class="slide-element flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md col-span-full">
+                    <span class="text-3xl text-mat-blue">✨</span>
+                    <div>
+                        <h3 class="text-xl font-semibold font-['Tajawal']">الرمزية: يمثل تطوان كعاصمة ثقافية وشمالية</h3>
+                        <p class="text-gray-600">Symbolism: Represents Tetouan as a cultural & northern capital with Spanish-Moroccan specificity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-5 -z-10" style="background-image: url('https://placehold.co/1280x720/ECF0F1/E74C3C?text=Andalusian+Arch');"></div>
+        </div>
+
+        <div id="slide4" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">تموضع العلامة: مكانتنا في المشهد الرياضي</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+                <div class="map-highlight flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
+                    <span class="text-5xl mb-4">📍</span>
+                    <h3 class="text-2xl font-semibold text-mat-blue font-['Tajawal']">محليًا (تطوان)</h3>
+                    <p class="text-center text-gray-700">ولاء عاطفي قوي، هوية المدينة مرتبطة بالنادي.</p>
+                    <p class="text-center text-gray-500">(Strong emotional loyalty, city's identity linked to the club.)</p>
+                </div>
+                <div class="map-highlight flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
+                    <span class="text-5xl mb-4">🇲🇦</span>
+                    <h3 class="text-2xl font-semibold text-mat-blue font-['Tajawal']">وطنيًا (المغرب)</h3>
+                    <p class="text-center text-gray-700">محدود نسبيًا، يفتقد لانتشار جماهيري واسع.</p>
+                    <p class="text-center text-gray-500">(Relatively limited, lacks widespread fan base.)</p>
+                </div>
+                <div class="map-highlight flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
+                    <span class="text-5xl mb-4">🌍</span>
+                    <h3 class="text-2xl font-semibold text-mat-blue font-['Tajawal']">دوليًا</h3>
+                    <p class="text-center text-gray-700">ضعيف، رغم المشاركة التاريخية في كأس العالم للأندية.</p>
+                    <p class="text-center text-gray-500">(Weak, despite historical participation in Club World Cup.)</p>
+                </div>
+            </div>
+            <p class="text-lg mt-8 text-center max-w-3xl font-['Tajawal']">
+                **التحليل:** تموضعه المحلي قوي وعاطفي، لكنه يحتاج إلى توسيع نطاق التأثير الوطني عبر الإعلام، الإنجازات والمحتوى الرقمي.
+            </p>
+            <p class="text-md mt-2 text-center max-w-3xl text-gray-600">
+                (Analysis: Strong local and emotional positioning, but needs national expansion through media, achievements, and digital content.)
+            </p>
+            <div class="flex items-end h-24 mt-8 w-full max-w-md">
+                <div class="bg-green-500 w-1/3 h-full rounded-t-lg mx-1 chart-bar" style="height: 90%;"></div>
+                <div class="bg-yellow-500 w-1/3 h-full rounded-t-lg mx-1 chart-bar" style="height: 50%;"></div>
+                <div class="bg-red-500 w-1/3 h-full rounded-t-lg mx-1 chart-bar" style="height: 20%;"></div>
+            </div>
+        </div>
+
+        <div id="slide5" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">جماهير النادي: قلب MAT النابض</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-8">
+                <span class="text-7xl text-red-500 heart-icon">❤️</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="fan-segment flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-4xl mb-2">🧑‍🤝‍🧑</span>
+                        <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الجمهور المحلي</h3>
+                        <p class="text-center text-gray-700 text-sm">شغوف، متعصب، يعتبر النادي رمزًا للهوية التطوانية.</p>
+                        <p class="text-center text-gray-500 text-xs">(Passionate, fervent, sees the club as a symbol of Tetouan's identity.)</p>
+                    </div>
+                    <div class="fan-segment flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-4xl mb-2">🇪🇺</span>
+                        <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الجالية التطوانية</h3>
+                        <p class="text-center text-gray-700 text-sm">موجودة في أوروبا (خاصة إسبانيا)، يمكن استهدافها تسويقيًا.</p>
+                        <p class="text-center text-gray-500 text-xs">(Present in Europe (especially Spain), can be targeted marketing-wise.)</p>
+                    </div>
+                    <div class="fan-segment flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-4xl mb-2">🤷</span>
+                        <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الجمهور الوطني</h3>
+                        <p class="text-center text-gray-700 text-sm">محايد أو غير مهتم غالبًا بسبب ضعف الحملات الإعلامية.</p>
+                        <p class="text-center text-gray-500 text-xs">(Neutral or uninterested, often due to weak media campaigns.)</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg mt-8 text-center max-w-3xl font-['Tajawal']">
+                **التحليل:** النادي يملك قاعدة مشجعين قابلة للتوسع، خصوصًا عبر تعزيز المحتوى الرقمي وتبني خطط Fan Engagement حديثة.
+            </p>
+            <p class="text-md mt-2 text-center max-w-3xl text-gray-600">
+                (Analysis: The club has an expandable fan base, especially by enhancing digital content and adopting modern Fan Engagement plans.)
+            </p>
+        </div>
+
+        <div id="slide6" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">الحضور الإعلامي والرقمي: أين نقف اليوم؟</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col items-center social-icon p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-blue-600 mb-2">📘</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">فيسبوك</h3>
+                    <p class="text-center text-gray-700 text-sm">نشط نسبيًا لكن بدون احترافية.</p>
+                </div>
+                <div class="flex flex-col items-center social-icon p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-pink-600 mb-2">📸</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">إنستغرام / تيك توك</h3>
+                    <p class="text-center text-gray-700 text-sm">ضعيف / غير فعال.</p>
+                </div>
+                <div class="flex flex-col items-center social-icon p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-green-600 mb-2">🌐</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الموقع الرسمي</h3>
+                    <p class="text-center text-gray-700 text-sm">بسيط، لا يعكس هوية احترافية.</p>
+                </div>
+                <div class="flex flex-col items-center social-icon p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-red-600 mb-2">▶️</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">يوتيوب</h3>
+                    <p class="text-center text-gray-700 text-sm">محتوى ضعيف، غياب الوثائقيات.</p>
+                </div>
+            </div>
+            <p class="text-lg mt-8 text-center max-w-3xl font-['Tajawal'] puzzle-piece">
+                **التحليل:** العلامة تفتقد إلى استراتيجية محتوى رقمية متكاملة. هناك فرصة ضخمة لبناء ميديا براند مستوحاة من قصة النادي وتاريخ تطوان.
+            </p>
+            <p class="text-md mt-2 text-center max-w-3xl text-gray-600">
+                (Analysis: The brand lacks an integrated digital content strategy. Huge opportunity to build a media brand inspired by the club's story and Tetouan's history.)
+            </p>
+        </div>
+
+        <div id="slide7" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">القيمة التجارية: فرص غير مستغلة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+                <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl mb-2">🤝</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الرعاة المحليون</h3>
+                    <p class="text-center text-gray-700 text-sm">متواضعون (شركات نقل، مياه، مؤسسات إقليمية).</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl mb-2">🚫</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">الرعاة الوطنيون</h3>
+                    <p class="text-center text-gray-700 text-sm">نادرون أو غير موجودين، لا يوجد تحالفات كبرى.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl mb-2">👕</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">منتجات النادي</h3>
+                    <p class="text-center text-gray-700 text-sm">ضعيفة جدًا من حيث Merchandising.</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl mb-2">🔗</span>
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">العلاقات B2B</h3>
+                    <p class="text-center text-gray-700 text-sm">غير مستغلة، لا توجد برامج شراكات.</p>
+                </div>
+            </div>
+            <p class="text-lg mt-8 text-center max-w-3xl font-['Tajawal']">
+                **التحليل:** قيمة العلامة التجارية غير مستثمرة بما فيه الكفاة. يجب إنشاء فريق تسويق تجاري يطور عروضًا جذابة للرعاة، خاصة في الشمال والمغتربين.
+            </p>
+            </div>
+
+        <div id="slide8" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">تحليل SWOT: نقاط القوة والضعف</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4 font-['Tajawal']">نقاط القوة (Strengths)</h3>
+                    <div class="strength-point flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-green-500">✅</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">تاريخ فريد ومميز (اللعب في الليغا - هوية أندلسية).</p>
+                            <p class="text-gray-600 text-sm">(Unique history - La Liga play - Andalusian identity.)</p>
+                        </div>
+                    </div>
+                    <div class="strength-point flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-green-500">✅</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">قاعدة جماهيرية محلية وفية.</p>
+                            <p class="text-gray-600 text-sm">(Loyal local fan base.)</p>
+                        </div>
+                    </div>
+                    <div class="strength-point flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-green-500">✅</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">فرصة تسويقية داخل الجالية المغربية في إسبانيا وأوروبا.</p>
+                            <p class="text-gray-600 text-sm">(Marketing opportunity within Moroccan diaspora in Spain & Europe.)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4 font-['Tajawal']">نقاط الضعف (Weaknesses)</h3>
+                    <div class="weakness-point flex items-start gap-4 p-4 bg-red-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-red-500">❌</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">ضعف المنظومة التسويقية الرقمية والتجارية.</p>
+                            <p class="text-gray-600 text-sm">(Weak digital & commercial marketing system.)</p>
+                        </div>
+                    </div>
+                    <div class="weakness-point flex items-start gap-4 p-4 bg-red-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-red-500">❌</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">غياب الاستمرارية الرياضية يضر بصورة النادي.</p>
+                            <p class="text-gray-600 text-sm">(Lack of performance and titles hurts the club's image.)</p>
+                        </div>
+                    </div>
+                    <div class="weakness-point flex items-start gap-4 p-4 bg-red-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-red-500">❌</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">لا توجد منتجات أو تجارب لجماهير النادي.</p>
+                            <p class="text-gray-600 text-sm">(No products or experiences for club fans.)</p>
+                        </div>
+                    </div>
+                    <div class="weakness-point flex items-start gap-4 p-4 bg-red-50 rounded-lg shadow-sm">
+                        <span class="text-3xl text-red-500">❌</span>
+                        <div>
+                            <p class="font-semibold font-['Tajawal']">ضعف الحضور الوطني في الإعلام الرياضي.</p>
+                            <p class="text-gray-600 text-sm">(Weak national presence in sports media.)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide9" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">توصيات لتطوير العلامة التجارية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">1.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">إعادة بناء الموقع الرسمي كمنصة إعلامية وتجارية متكاملة.</p>
+                        <p class="text-gray-600 text-sm">(Rebuild official website as integrated media & commercial platform.)</p>
+                    </div>
+                </div>
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">2.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">إطلاق قناة YouTube احترافية تحكي قصص اللاعبين، الجماهير، المدينة.</p>
+                        <p class="text-gray-600 text-sm">(Launch professional YouTube channel telling stories of players, fans, city.)</p>
+                    </div>
+                </div>
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">3.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">تطوير خط Merchandising رسمي (قمصان، أكواب، أعلام، ملصقات).</p>
+                        <p class="text-gray-600 text-sm">(Develop official Merchandising line.)</p>
+                    </div>
+                </div>
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">4.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">استهداف الجالية التطوانية في إسبانيا بحملات "أنا تطواني".</p>
+                        <p class="text-gray-600 text-sm">(Target Tetouani diaspora in Spain with "Ana Tetouani" campaigns.)</p>
+                    </div>
+                </div>
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">5.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">بناء شراكات مع مدارس رياضية وماركات محلية لتفعيل Sponsorship حقيقي.</p>
+                        <p class="text-gray-600 text-sm">(Build partnerships with sports schools & local brands for real sponsorship.)</p>
+                    </div>
+                </div>
+                <div class="recommendation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">6.</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">توظيف مدير تسويق رياضي محترف أو التعاقد مع وكالة تسويق متخصصة.</p>
+                        <p class="text-gray-600 text-sm">(Hire professional sports marketing manager or specialized agency.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide10" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">الأهداف الاستراتيجية: طموحنا للمستقبل</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="goal-item p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal'] mb-2">زيادة المداخيل التجارية بنسبة %200</h3>
+                    <p class="text-gray-700 text-sm">النتيجة المتوقعة: من خلال الرعاة والمتجر والتذاكر.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-green-500 h-2.5 rounded-full progress-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="goal-item p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal'] mb-2">توسيع قاعدة الجماهير الوطنية والرقمية</h3>
+                    <p class="text-gray-700 text-sm">النتيجة المتوقعة: بـ أكثر من 1 مليون متابع على منصات التواصل الاجتماعي.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-blue-500 h-2.5 rounded-full progress-bar-fill" style="width: 100%; animation-delay: 0.2s;"></div>
+                    </div>
+                </div>
+                <div class="goal-item p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal'] mb-2">إطلاق متجر إلكتروني رسمي</h3>
+                    <p class="text-gray-700 text-sm">النتيجة المتوقعة: لبيع المنتجات الأصلية محليًا ودوليًا.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-purple-500 h-2.5 rounded-full progress-bar-fill" style="width: 100%; animation-delay: 0.4s;"></div>
+                    </div>
+                </div>
+                <div class="goal-item p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal'] mb-2">جذب 4 رعاة جدد وطنيين ودوليين</h3>
+                    <p class="text-gray-700 text-sm">النتيجة المتوقعة: لتغطية نصف الميزانية التشغيلية.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                        <div class="bg-yellow-500 h-2.5 rounded-full progress-bar-fill" style="width: 100%; animation-delay: 0.6s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide11" class="slide">
+            <h2 class="text-4xl font-bold mb-4 text-mat-red font-['Tajawal']">الخطة التنفيذية</h2>
+
+            <div class="flex flex-col items-center justify-center h-full w-full">
+                <div class="phase-container">
+                    <div class="phase-box">
+                        <h3 class="phase-title font-['Tajawal']">المرحلة الأولى: التأسيس والتحول الرقمي (أشهر 1-3)</h3>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🌐</span>
+                            <p>إطلاق موقع رسمي احترافي (عربي / فرنسي / إسباني).</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">📈</span>
+                            <p>تحسين المحتوى الرقمي (Facebook, Instagram, TikTok, YouTube).</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">👨‍💼</span>
+                            <p>توظيف مدير تسويق محترف.</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🔍</span>
+                            <p>توثيق النادي على Google, Wikipedia, etc.</p>
+                        </div>
+                    </div>
+                    <div class="arrow-down" style="animation-delay: 0.8s;"></div>
+                </div>
+
+                <div class="phase-container">
+                    <div class="phase-box" style="animation-delay: 1.0s;">
+                        <h3 class="phase-title font-['Tajawal']">المرحلة الثانية: تفعيل الموارد التجارية (أشهر 4-6)</h3>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🛍️</span>
+                            <p>إطلاق متجر إلكتروني رسمي للـ Merch.</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🤝</span>
+                            <p>توقيع شراكات مع شركات محلية ووطنية.</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">💳</span>
+                            <p>باقة اشتراكات رقمية للجمهور.</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🎫</span>
+                            <p>تصميم بطاقة جماهيرية باسم "Tifosi Tétouan".</p>
+                        </div>
+                    </div>
+                    <div class="arrow-down" style="animation-delay: 1.8s;"></div>
+                </div>
+
+                <div class="phase-container">
+                    <div class="phase-box" style="animation-delay: 2.0s;">
+                        <h3 class="phase-title font-['Tajawal']">المرحلة الثالثة: التوسع الوطني والدولي (أشهر 7-12)</h3>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🌍</span>
+                            <p>إطلاق حملة "Ana Tetouani" في إسبانيا وفرنسا.</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🎬</span>
+                            <p>إنتاج وثائقي قصير: "من الليغا إلى العالم".</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">🏙️</span>
+                            <p>تنظيم "أسبوع تطواني" بمدن كبرى (الرباط، طنجة).</p>
+                        </div>
+                        <div class="phase-activity">
+                            <span class="phase-activity-icon">📺</span>
+                            <p>التفاوض على حقوق البث المباشر عبر YouTube/Facebook.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide12" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">خطة المحتوى والتفاعل الرقمي</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                <div class="content-type-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🗣️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">قصص مشجعين (مرتين أسبوعيًا).</p>
+                        <p class="text-gray-600 text-sm">الجمهور المحلي والجالية.</p>
+                    </div>
+                </div>
+                <div class="content-type-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🏋️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">كواليس التدريبات (3 مرات أسبوعيًا).</p>
+                        <p class="text-gray-600 text-sm">فئة الشباب والمتابعين الرقميين.</p>
+                    </div>
+                </div>
+                <div class="content-type-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🎙️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">مقابلات قصيرة مع اللاعبين (مرة أسبوعيًا).</p>
+                        <p class="text-gray-600 text-sm">محبي اللاعبين واللايف ستايل.</p>
+                    </div>
+                </div>
+                <div class="content-type-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🏆</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">تحديات ومسابقات (مرتين شهريًا).</p>
+                        <p class="text-gray-600 text-sm">جمهور شبابي.</p>
+                    </div>
+                </div>
+                <div class="content-type-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md col-span-full">
+                    <span class="text-3xl text-mat-blue">💰</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">محتوى اقتصادي (حسب الحملات).</p>
+                        <p class="text-gray-600 text-sm">شركاء محتملين وجمهور اقتصادي.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide13" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">العائد المتوقع (بعد 12 شهرًا)</h2>
+            <div class="flex flex-col gap-6 w-full max-w-3xl">
+                <div class="flex items-center gap-4">
+                    <p class="w-48 font-semibold text-mat-blue font-['Tajawal']">متجر إلكتروني:</p>
+                    <div class="flex-grow bg-gray-200 rounded-full h-8">
+                        <div class="bg-green-500 h-full rounded-full revenue-bar" style="width: 80%;"></div>
+                    </div>
+                    <p class="w-32 text-right font-bold text-green-700">1.2 - 2 مليون درهم</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <p class="w-48 font-semibold text-mat-blue font-['Tajawal']">الرعاة الرسميون:</p>
+                    <div class="flex-grow bg-gray-200 rounded-full h-8">
+                        <div class="bg-blue-500 h-full rounded-full revenue-bar" style="width: 90%; animation-delay: 0.2s;"></div>
+                    </div>
+                    <p class="w-32 text-right font-bold text-blue-700">2 - 3.5 مليون درهم</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <p class="w-48 font-semibold text-mat-blue font-['Tajawal']">التذاكر والبطاقات الجماهيرية:</p>
+                    <div class="flex-grow bg-gray-200 rounded-full h-8">
+                        <div class="bg-purple-500 h-full rounded-full revenue-bar" style="width: 70%; animation-delay: 0.4s;"></div>
+                    </div>
+                    <p class="w-32 text-right font-bold text-purple-700">800 ألف - 1.2 مليون درهم</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <p class="w-48 font-semibold text-mat-blue font-['Tajawal']">المحتوى المدفوع والإعلانات:</p>
+                    <div class="flex-grow bg-gray-200 rounded-full h-8">
+                        <div class="bg-yellow-500 h-full rounded-full revenue-bar" style="width: 50%; animation-delay: 0.6s;"></div>
+                    </div>
+                    <p class="w-32 text-right font-bold text-yellow-700">300 ألف - 700 ألف درهم</p>
+                </div>
+                <div class="flex items-center gap-4 mt-8 pt-4 border-t-2 border-gray-200">
+                    <p class="w-48 text-2xl font-bold text-mat-red font-['Tajawal']">الإجمالي:</p>
+                    <p class="flex-grow text-right text-2xl font-bold text-mat-red">4.3 - 7.4 مليون درهم</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide14" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">الهيكل التنظيمي التسويقي المقترح</h2>
+            <div class="flex flex-col items-center gap-6 w-full max-w-3xl">
+                <div class="org-role flex items-center gap-4 p-4 bg-white rounded-lg shadow-md w-full">
+                    <span class="text-3xl text-mat-blue">👑</span>
+                    <div>
+                        <p class="font-semibold text-xl font-['Tajawal']">مدير التسويق</p>
+                        <p class="text-gray-600 text-sm">قيادة كل العمليات</p>
+                    </div>
+                </div>
+                <div class="org-role flex items-center gap-4 p-4 bg-white rounded-lg shadow-md w-full">
+                    <span class="text-3xl text-mat-blue">✍️</span>
+                    <div>
+                        <p class="font-semibold text-xl font-['Tajawal']">مسؤول المحتوى الرقمي</p>
+                        <p class="text-gray-600 text-sm">إدارة التواصل الاجتماعي والموقع</p>
+                    </div>
+                </div>
+                <div class="org-role flex items-center gap-4 p-4 bg-white rounded-lg shadow-md w-full">
+                    <span class="text-3xl text-mat-blue">🤝</span>
+                    <div>
+                        <p class="font-semibold text-xl font-['Tajawal']">مدير الشراكات والرعاة</p>
+                        <p class="text-gray-600 text-sm">البحث والتفاوض وتفعيل الرعاة</p>
+                    </div>
+                </div>
+                <div class="org-role flex items-center gap-4 p-4 bg-white rounded-lg shadow-md w-full">
+                    <span class="text-3xl text-mat-blue">🛒</span>
+                    <div>
+                        <p class="font-semibold text-xl font-['Tajawal']">مسؤول المتجر والمنتجات</p>
+                        <p class="text-gray-600 text-sm">تطوير وإدارة Merchandising</p>
+                    </div>
+                </div>
+                <div class="org-role flex items-center gap-4 p-4 bg-white rounded-lg shadow-md w-full">
+                    <span class="text-3xl text-mat-blue">📣</span>
+                    <div>
+                        <p class="font-semibold text-xl font-['Tajawal']">مسؤول العلاقات الجماهيرية</p>
+                        <p class="text-gray-600 text-sm">تنشيط العلاقة مع الجمهور وتنظيم الأحداث</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide15" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">نقاط النجاح الرئيسية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+                <div class="success-factor flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-md">
+                    <span class="text-3xl text-green-600">✔️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">الالتزام التنفيذي من الإدارة العليا.</p>
+                        <p class="text-gray-600 text-sm">(Executive commitment from senior management.)</p>
+                    </div>
+                </div>
+                <div class="success-factor flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-sm">
+                    <span class="text-3xl text-green-600">✔️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">تعيين مدير تسويق يتمتع بالخبرة في التسويق الرياضي.</p>
+                        <p class="text-gray-600 text-sm">(Appointment of an experienced sports marketing manager.)</p>
+                    </div>
+                </div>
+                <div class="success-factor flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-md">
+                    <span class="text-3xl text-green-600">✔️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">شراكة مع وكالة محتوى رقمي محترفة.</p>
+                        <p class="text-gray-600 text-sm">(Partnership with a professional digital content agency.)</p>
+                    </div>
+                </div>
+                <div class="success-factor flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-md">
+                    <span class="text-3xl text-green-600">✔️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">تطوير محتوى بصري قوي مرتبط بالعاطفة والهوية.</p>
+                        <p class="text-gray-600 text-sm">(Development of strong visual content linked to emotion and identity.)</p>
+                    </div>
+                </div>
+                <div class="success-factor flex items-start gap-4 p-4 bg-green-50 rounded-lg shadow-md">
+                    <span class="text-3xl text-green-600">✔️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">إشراك الجمهور في كل خطوة (تصويتات، مسابقات، بطاقات).</p>
+                        <p class="text-gray-600 text-sm">(Engaging the audience at every step - polls, competitions, cards.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide16" class="slide">
+            <h2 class="text-4xl font-bold mb-8 font-['Tajawal']">الحملة الرسمية: <span class="text-mat-gold">#عاون_الفريق</span></h2>
+            <p class="text-3xl font-bold mb-8 slogan-text font-['Tajawal']">"لبس الأصلي، عاون الفريق، وكون مشجع حقيقي!"</p>
+            <p class="text-xl mb-12">(Wear the original, support the team, and be a true fan!)</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col items-center campaign-icon">
+                    <span class="text-6xl mb-2">🤝</span>
+                    <p class="text-lg text-center font-['Tajawal']">دعم الفريق</p>
+                </div>
+                <div class="flex flex-col items-center campaign-icon">
+                    <span class="text-6xl mb-2">⚔️</span>
+                    <p class="text-lg text-center font-['Tajawal']">محاربة السوق السوداء</p>
+                </div>
+                <div class="flex flex-col items-center campaign-icon">
+                    <span class="text-6xl mb-2">🏛️</span>
+                    <p class="text-lg text-center font-['Tajawal']">إشراك السلطات</p>
+                </div>
+                <div class="flex flex-col items-center campaign-icon">
+                    <span class="text-6xl mb-2">👥</span>
+                    <p class="text-lg text-center font-['Tajawal']">دمج الالتراس</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide17" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">#عاون_الفريق: التنشيط الرقمي والميداني</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal']">الحملات الرقمية (Online)</h3>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">#️⃣</span>
+                        <p class="font-semibold font-['Tajawal']">هاشتاغ #عاون_الفريق.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🎬</span>
+                        <p class="font-semibold font-['Tajawal']">فيديو توعوي قصير (60 ثانية).</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🖼️</span>
+                        <p class="font-semibold font-['Tajawal']">بوستات توعوية مصورة.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🎤</span>
+                        <p class="font-semibold font-['Tajawal']">تحدي المشجع الواعي.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">📱</span>
+                        <p class="font-semibold font-['Tajawal']">ستوري تعريفي يومي.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal']">التنشيط الميداني (Offline)</h3>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🚶‍♀️</span>
+                        <p class="font-semibold font-['Tajawal']">جولة الشوارع والأسواق الشعبية.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🛣️</span>
+                        <p class="font-semibold font-['Tajawal']">لوحات دعائية بالأحياء الحيوية.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">✊</span>
+                        <p class="font-semibold font-['Tajawal']">وقفة تضامنية رمزية.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🚚</span>
+                        <p class="font-semibold font-['Tajawal']">نقاط بيع متنقلة أصلية.</p>
+                    </div>
+                    <div class="activation-point flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🏫</span>
+                        <p class="font-semibold font-['Tajawal']">زيارات المدارس والثانويات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide18" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">#عاون_الفريق: تعبئة الجماهير والرسائل الأساسية</h2>
+            <div class="flex flex-col gap-8 w-full max-w-4xl">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] dynamic-effect">التعبئة الجماهيرية مع الالتراس</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                        <div class="flex flex-col items-center dynamic-effect p-4 bg-gray-100 rounded-lg shadow-md">
+                            <span class="text-4xl text-mat-blue mb-2">🐂</span>
+                            <h4 class="text-xl font-semibold font-['Tajawal']">مشجعين</h4>
+                            <p class="text-center text-gray-700 text-sm">إنتاج فيديوهات من داخل المدرج، جرافيتي ضد المزورين.</p>
+                        </div>
+                        <div class="flex flex-col items-center dynamic-effect p-4 bg-gray-100 rounded-lg shadow-md">
+                            <span class="text-4xl text-mat-blue mb-2">🕊️</span>
+                            <h4 class="text-xl font-semibold font-['Tajawal']">بالوما</h4>
+                            <p class="text-center text-gray-700 text-sm">جولات ميدانية توعوية، تنشيط المحتوى على إنستغرام وتيك توك.</p>
+                        </div>
+                    </div>
+                    <p class="text-lg mt-4 font-['Tajawal'] dynamic-effect">اقتراح أغنية قصيرة مشتركة بعنوان "لبس الأصلي" تنتشر في TikTok و Reels.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] dynamic-effect">الرسائل الأساسية للحملة</h3>
+                    <div class="flex flex-col gap-4 w-full">
+                        <div class="dynamic-effect p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">"كل درهم فالمزور كيضرب الفريق"</p>
+                            <p class="text-gray-600 text-sm">تحويل عاطفة الجمهور إلى مسؤولية مادية.</p>
+                        </div>
+                        <div class="dynamic-effect p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">"القميص الأصلي = راتب اللاعب الشاب"</p>
+                            <p class="text-gray-600 text-sm">ربط البيع بالمردود الرياضي والنموذج التنموي.</p>
+                        </div>
+                        <div class="dynamic-effect p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">"متجر رسمي = مستقبل النادي"</p>
+                            <p class="text-gray-600 text-sm">نشر مفهوم "الشراء كوسيلة دعم" وليس مجرد استهلاك.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide19" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">#عاون_الفريق: دعوة السلطات وتحفيز الجماهير</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] visual-separation-item">دعوة السلطات والشركاء</h3>
+                    <div class="visual-separation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🏛️</span>
+                        <p class="font-semibold font-['Tajawal']">ولاية تطوان: إصدار بيان يحذر من بيع المنتجات غير المرخصة.</p>
+                    </div>
+                    <div class="visual-separation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🏢</span>
+                        <p class="font-semibold font-['Tajawal']">الجماعة الحضرية: تسهيل تراخيص نقاط البيع الرسمية.</p>
+                    </div>
+                    <div class="visual-separation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">👮</span>
+                        <p class="font-semibold font-['Tajawal']">الأمن والسلطات المحلية: مراقبة السوق ومصادرة المنتجات غير القانونية.</p>
+                    </div>
+                    <div class="visual-separation-item flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🤝</span>
+                        <p class="font-semibold font-['Tajawal']">المجتمع المدني: المساهمة في التوعية وتشجيع ثقافة الاستهلاك الواعي.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] visual-separation-item">تحفيز الجماهير</h3>
+                    <div class="visual-separation-item p-4 bg-gray-100 text-black rounded-lg shadow-md">
+                        <p class="font-semibold text-lg font-['Tajawal'] text-black">كل من يشتري من المتجر الرسمي يدخل سحبًا أسبوعيًا لربح:</p>
+                        <ul class="list-disc list-inside mt-2 text-lg text-black">
+                            <li>قميص موقع من الفريق الأول</li>
+                            <li>تذاكر مباريات</li>
+                            <li>جولة داخل مركز التدريب</li>
+                        </ul>
+                    </div>
+                    <img src="https://images2.imgbox.com/23/be/S8JzfaiP_o.png" alt="Signed Jersey" class="rounded-lg shadow-md visual-separation-item w-40 h-auto mx-auto block" style="animation-delay: 0.8s;">
+                </div>
+            </div>
+        </div>
+
+        <div id="slide20" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">#عاون_الفريق: الجدول الزمني ومؤشرات النجاح</h2>
+            <div class="flex flex-col gap-8 w-full max-w-4xl">
+                <div class="flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal']">الجدول الزمني المقترح</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-4 mb-4 timeline-progress">
+                        <div class="bg-mat-gold h-full rounded-full" style="width: 100%;"></div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full text-center">
+                        <div><p class="font-semibold font-['Tajawal']">الأسبوع الأول: التحضير والإنتاج الإعلامي</p></div>
+                        <div><p class="font-semibold font-['Tajawal']">أسبوع المباراة القادمة: الإطلاق الرسمي</p></div>
+                        <div><p class="font-semibold font-['Tajawal']">على مدار 3 أسابيع: الجولات الميدانية</p></div>
+                        <div><p class="font-semibold font-['Tajawal']">الأسبوع الرابع: تقييم الأثر والمتابعة</p></div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal']">مؤشرات قياس النجاح (KPIs)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">زيادة مبيعات المتجر الرسمي: <span class="text-green-600">150%+</span></p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2"><div class="bg-green-500 h-2.5 rounded-full kpi-gauge" style="width: 100%;"></div></div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">التفاعل مع هاشتاغ #عاون_الفريق: <span class="text-blue-600">+500K تفاعل</span></p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2"><div class="bg-blue-500 h-2.5 rounded-full kpi-gauge" style="width: 100%; animation-delay: 0.2s;"></div></div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">مشاركة الالتراس: <span class="text-purple-600">3 فيديوهات + 2 خرجات ميدانية</span></p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2"><div class="bg-purple-500 h-2.5 rounded-full kpi-gauge" style="width: 100%; animation-delay: 0.4s;"></div></div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-md">
+                            <p class="font-semibold font-['Tajawal']">توقيف محلات مخالفة: <span class="text-red-600">10 محلات على الأقل</span></p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2"><div class="bg-red-500 h-2.5 rounded-full kpi-gauge" style="width: 100%; animation-delay: 0.6s;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide21" class="slide">
+            <h2 class="text-4xl font-bold mb-4 font-['Tajawal']">خطة Rebranding: رؤية وجوهر جديدان</h2>
+            <p class="text-2xl mb-8 font-['Tajawal'] slogan-reveal">من فريق تطواني إلى حركة حضارية - MAT، رمز الشمال، نبض الهوية</p>
+            <p class="text-xl mb-12">(This plan is a roadmap to transform Moghreb Athletic Tetouan into a leading brand, investing its rich history and fan passion to achieve growth and success.)</p>
+            <div class="flex flex-col gap-6 w-full max-w-4xl">
+                <div class="p-4 bg-white rounded-lg shadow-md values-fade">
+                    <h3 class="text-xl font-semibold text-mat-blue font-['Tajawal']">جوهر العلامة الجديد:</h3>
+                    <ul class="list-disc list-inside text-gray-700 mt-2">
+                        <li>الاسم المختصر الجديد: MAT بشكل رسمي وموحد.</li>
+                        <li>الـ Slogan الجديد: "أصالة.. روح.. تطوان" أو "MAT - من الليغا جاي".</li>
+                        <li>الرسالة: تمثيل مدينة تطوان ثقافيًا ورياضيًا على المستوى الوطني والدولي.</li>
+                        <li>الرؤية: بناء نادٍ مستدام ماليًا، جماهيريًا، مؤثرًا في مجاله، وملهم للأجيال.</li>
+                        <li>القيم الأساسية: الهوية - الشجاعة - الأصالة - الالتزام - الوحدة.</li>
+                    </ul>
+                </div>
+            </div>
+            <span class="text-7xl text-mat-gold absolute bottom-16 left-16 transform -translate-x-1/2 -translate-y-1/2">🧭</span>
+        </div>
+
+        <div id="slide22" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">بنية الهوية البصرية الجديدة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="clean-slide-in flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🛡️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">الشعار: يُحافظ عليه - يمكن تبسيطه قليلاً لإصدار رقمي.</p>
+                    </div>
+                </div>
+                <div class="clean-slide-in flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">🎨</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">الألوان الرسمية: الأحمر، الأبيض، رمادي فاتح.</p>
+                    </div>
+                </div>
+                <div class="clean-slide-in flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">✒️</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">الخط الرسمي: اعتماد خط عربي - لاتيني حديث (مثل "Tajawal").</p>
+                    </div>
+                </div>
+                <div class="clean-slide-in flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-3xl text-mat-blue">📱</span>
+                    <div>
+                        <p class="font-semibold font-['Tajawal']">قالب المحتوى الرقمي: توحيد التصاميم على Instagram/Facebook.</p>
+                    </div>
+                </div>
+            </div>
+            <img src="https://images2.imgbox.com/08/dc/ZSABCH8d_o.png" alt="New Social Media Mockup" class="mt-8 rounded-lg shadow-lg mx-auto block w-96 h-auto">
+        </div>
+
+        <div id="slide23" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">حملات البراند الجديدة</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="campaign-idea flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-mat-blue mb-2">⚽🇪🇸</span>
+                    <h3 class="text-xl font-semibold font-['Tajawal']">"من الليغا جاي"</h3>
+                    <p class="text-center text-gray-700 text-sm">محتوى يوثق لعب MAT في إسبانيا.</p>
+                </div>
+                <div class="campaign-idea flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-mat-blue mb-2">👕🕌</span>
+                    <h3 class="text-xl font-semibold font-['Tajawal']">"قميصنا.. هويتنا"</h3>
+                    <p class="text-center text-gray-700 text-sm">حملات لبيع القمصان تربطها بتاريخ تطوان والأندلس.</p>
+                </div>
+                <div class="campaign-idea flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-mat-blue mb-2">🗺️</span>
+                    <h3 class="text-xl font-semibold font-['Tajawal']">"احنا الشمال.. وانت؟"</h3>
+                    <p class="text-center text-gray-700 text-sm">حملة استقطاب مشجعين جدد من خارج تطوان.</p>
+                </div>
+                <div class="campaign-idea flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md">
+                    <span class="text-5xl text-mat-blue mb-2">💪</span>
+                    <h3 class="text-xl font-semibold font-['Tajawal']">"أنصر فريقك"</h3>
+                    <p class="text-center text-gray-700 text-sm">تطوير #عاون_الفريق كشريحة دعم دائمة.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide24" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">تفعيل رقمي مواكب للهوية الجديدة والمنتجات الرسمية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] digital-element">تفعيل رقمي مواكب للهوية الجديدة</h3>
+                    <div class="digital-element flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">🌐</span>
+                        <p class="font-semibold font-['Tajawal']">موقع إلكتروني رسمي بتصميم رياضي - أندلسي.</p>
+                    </div>
+                    <div class="digital-element flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">▶️</span>
+                        <p class="font-semibold font-['Tajawal']">قناة YouTube: توثيق تاريخي، "مذكرات تطوانية"، تحليل فني.</p>
+                    </div>
+                    <div class="digital-element flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">📊</span>
+                        <p class="font-semibold font-['Tajawal']">حملات إعلانية ممولة: استهداف المدن المجاورة والجالية.</p>
+                    </div>
+                    <div class="digital-element flex items-start gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+                        <span class="text-3xl text-mat-blue">📚</span>
+                        <p class="font-semibold font-['Tajawal']">دليل بصري للبراند (Brandbook).</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 items-center justify-center">
+                    <h3 class="text-2xl font-bold text-mat-blue mb-4 font-['Tajawal'] product-mockup">المنتجات الرسمية الجديدة</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <img src="https://images2.imgbox.com/a7/05/G0VWVWB4_o.png" alt="Andalusian Jersey" class="rounded-lg shadow-md product-mockup w-40 h-auto">
+                        <img src="https://images2.imgbox.com/5d/56/3RFuv86p_o.png" alt="Tetouan+Scarf" class="rounded-lg shadow-md product-mockup w-40 h-auto">
+                        <img src="https://images2.imgbox.com/21/f5/flD2MukR_o.png" alt="Exclusive+Content" class="rounded-lg shadow-md product-mockup w-40 h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide25" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">🎮 خطة تسويقية لفريق e-FIFA – MAT e-Sports</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal']">🎯 الأهداف:</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg">
+                    <li>تعزيز صورة النادي لدى الجيل الرقمي.</li>
+                    <li>تحقيق أرباح من المحتوى والرعاة.</li>
+                    <li>توسيع قاعدة المشجعين محليًا ودوليًا.</li>
+                </ul>
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal'] mt-4">📌 الركائز الأساسية:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الهوية البصرية:</p>
+                        <p class="text-gray-700 text-sm">تطوير شعار رسمي لفريق MAT e-Sports بنفس هوية النادي.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">التفاعل الرقمي:</p>
+                        <p class="text-gray-700 text-sm">بث مباشر للمباريات + محتوى تدريبي + قصص اللاعبين على TikTok/YouTube/Facebook.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">المحتوى الحصري:</p>
+                        <p class="text-gray-700 text-sm">"يوم مع لاعب e-FIFA" – تحديات ضد المشجعين – بث تحليلي بعد كل مواجهة.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الرعاة:</p>
+                        <p class="text-gray-700 text-sm">استهداف شركات الألعاب، الإنترنت، وTech المغربية (Inwi, Maroc Telecom, ASUS, Orange, Sony, Redbull).</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">المنتجات:</p>
+                        <p class="text-gray-700 text-sm">قمصان إلكترونية، فئران ولوحات مفاتيح MAT Edition.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الترويج الوطني:</p>
+                        <p class="text-gray-700 text-sm">حملة #Gaming_Proud_Tetouani + ظهور اللاعبين في فعاليات محلية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide26" class="slide bg-F8F8F8">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">💰 مصادر الدخل: MAT e-Sports</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <ul class="list-disc list-inside text-gray-700 text-lg p-4 bg-gray-100 rounded-lg shadow-md">
+                    <li>رعايات من شركات التكنولوجيا والاتصالات.</li>
+                    <li>عائدات من YouTube/TikTok/Kick live & Superchats.</li>
+                    <li>بيع Merch مخصص لعشاق الجيمينغ.</li>
+                    <li>مسابقات مدفوعة للمشجعين (Entry fees + جوائز برعاية).</li>
+                    <li>بث حصري مدفوع لبعض المواجهات (Patreon أو Twitch or Kick).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="slide27" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">⚽️ خطة تسويقية لفريق النساء – MAT Féminin</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal']">🎯 الأهداف:</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg">
+                    <li>إبراز النساء في الرياضة محليًا ووطنياً.</li>
+                    <li>جذب الرعاة الداعمين للمساواة والتمكين.</li>
+                    <li>تعزيز حضور النادي في المشهد الرياضي النسوي.</li>
+                </ul>
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal'] mt-4">📌 الركائز الأساسية:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الهوية النسوية:</p>
+                        <p class="text-gray-700 text-sm">تطوير شارة فرعية للفريق النسوي ضمن هوية MAT الرسمية + لقب جماهيري (مثل "حمائم تطوان").</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الترويج المجتمعي:</p>
+                        <p class="text-gray-700 text-sm">ربط الفريق بحملات محلية عن تعليم الفتيات والرياضة النسوية + شراكات مع مدارس.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">المحتوى الرقمي:</p>
+                        <p class="text-gray-700 text-sm">مقابلات مع اللاعبات، قصص ملهمة، تدريبات مفتوحة على Instagram وTikTok.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الرعاة:</p>
+                        <p class="text-gray-700 text-sm">استهداف علامات تجارية مهتمة بالمرأة (Marwa، Inwi، Dove، BMCI – Women Empowerment).</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">المنتجات:</p>
+                        <p class="text-gray-700 text-sm">قمصان نسائية، أساور، حقيبة رياضية "أنا تطوانية وفخورة".</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الحضور الإعلامي:</p>
+                        <p class="text-gray-700 text-sm">تغطية إعلامية خاصة قبل وبعد كل مباراة، توثيق موسمي لأبرز اللحظات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide28" class="slide bg-F8F8F8">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">💰 مصادر الدخل: MAT Féminin</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <ul class="list-disc list-inside text-gray-700 text-lg p-4 bg-gray-100 rounded-lg shadow-md">
+                    <li>رعايات من علامات مهتمة بالتمكين النسائي.</li>
+                    <li>بيع Merch نسوي رسمي.</li>
+                    <li>فعاليات رياضية نسائية بتنظيم MAT Féminin.</li>
+                    <li>دورات تدريبية للفتيات الصغيرات برسوم رمزية.</li>
+                    <li>شراكات إعلامية مع منصات رقمية ونسائية.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="slide29" class="slide">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">🏟️ خطة تسويقية لفريق القاعة – MAT Futsal</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal']">🎯 الأهداف:</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg">
+                    <li>تعزيز مكانة الفريق كمصدر مهارات وسرعة في الشمال.</li>
+                    <li>تحويل صالة القاعة إلى نقطة ترفيه وجذب محلي.</li>
+                    <li>تحقيق دخل من جمهور جديد ومتحمس.</li>
+                </ul>
+                <h3 class="text-2xl font-bold text-mat-blue font-['Tajawal'] mt-4">📌 الركائز الأساسية:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">هوية مستقلة جزئيًا:</p>
+                        <p class="text-gray-700 text-sm">شعار فرعي: "MAT Futsal – السرعة بدمنا" مع نفس ألوان النادي.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">تجربة الجمهور:</p>
+                        <p class="text-gray-700 text-sm">عروض نصف الوقت – موسيقى – مؤثرات ضوئية – مقابلات تفاعلية مع الجمهور.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الترويج الرقمي:</p>
+                        <p class="text-gray-700 text-sm">فيديوهات TikTok/Instagram Reels للمهارات السريعة والأهداف الخرافية.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">الرعاة:</p>
+                        <p class="text-gray-700 text-sm">متاجر أحذية رياضية، صالات رياضة، مشروبات طاقة، أكاديميات تدريب.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">أحداث محلية:</p>
+                        <p class="text-gray-700 text-sm">دوري مصغر بأحياء تطوان، زيارات المدارس، بطولات نهاية الأسبوع.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow-md">
+                        <p class="font-semibold font-['Tajawal']">دمج الألتراس:</p>
+                        <p class="text-gray-700 text-sm">أهازيج مخصصة للفريق – حضور منظم – ستوريات حماسية قبل كل مباراة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide30" class="slide bg-F8F8F8">
+            <h2 class="text-4xl font-bold mb-8 text-mat-red font-['Tajawal']">💰 مصادر الدخل: MAT Futsal</h2>
+            <div class="flex flex-col gap-6 w-full max-w-5xl">
+                <ul class="list-disc list-inside text-gray-700 text-lg p-4 bg-gray-100 rounded-lg shadow-md">
+                    <li>بيع تذاكر للمباريات داخل الصالة.</li>
+                    <li>رعاية من علامات رياضية محلية أو وطنية.</li>
+                    <li>بيع Merch خاص بـ MAT Futsal (تيشرتات، كرات، شورتات).</li>
+                    <li>تنظيم دورات مدفوعة للتكوين والتحديات.</li>
+                    <li>محتوى مدفوع قصير: "أكاديمية المهارة السريعة".</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="slide31" class="slide bg-mat-red">
+            <h2 class="text-4xl font-bold mb-8 font-['Tajawal']">نحو مستقبل مشرق لـ MAT</h2>
+            <p class="text-2xl mb-8 font-['Tajawal'] roadmap-graphic">
+                هذه الخطة هي خارطة طريق لتحويل المغرب التطواني إلى علامة تجارية رائدة، تستثمر تاريخها العريق وشغف جماهيرها لتحقيق النمو والنجاح.
+            </p>
+            <p class="text-xl mb-12">(This plan is a roadmap to transform Moghreb Athletic Tetouan into a leading brand, investing its rich history and fan passion to achieve growth and success.)</p>
+            <h3 class="text-4xl font-bold text-mat-gold sparkle-effect font-['Tajawal']">معًا، نصنع التاريخ ونبني المستقبل.</h3>
+            <p class="text-2xl mt-4">(Together, we make history and build the future.)</p>
+            <img src="https://tmssl.akamaized.net//images/wappen/big/9100.png?lm=1717720007" alt="MAT Logo" class="mat-logo w-48 h-48 mt-12 rounded-none shadow-lg">
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prevBtn" class="nav-button">السابق</button>
+            <button id="nextBtn" class="nav-button">التالي</button>
+        </div>
+
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        // The total number of slides has changed due to adding new ones.
+        let currentSlide = 0;
+        const totalSlides = slides.length; // Dynamically get total slides
+
+        // Function to show a specific slide
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i < index) {
+                    slide.classList.add('prev');
+                } else {
+                    slide.classList.add('next');
+                }
+            });
+            updateButtons();
+        }
+
+        // Function to update navigation button states
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1; // Use totalSlides
+        }
+
+        // Event listener for Next button
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) { // Use totalSlides
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Event listener for Previous button
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize presentation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
